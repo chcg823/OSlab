@@ -47,17 +47,15 @@ void main()
 		if(i==0)
 		{
 			service_time[i] = arrival_time[i];
-			waiting_time[i] = service_time[i] - arrival_time[i];
-			ft[i] = service_time[i] + exec_time[i];
-			turn_around[i] = ft[i] - arrival_time[i];
 		}
 		else
 		{
-			service_time[i] = ft[i-1];
-			waiting_time[i] = service_time[i] - arrival_time[i];
-			ft[i] = service_time[i] + exec_time[i];
-			turn_around[i] = ft[i] - arrival_time[i];
+			service_time[i] = ft[i-1];	
 		}
+		waiting_time[i] = service_time[i] - arrival_time[i];
+		ft[i] = service_time[i] + exec_time[i];
+		turn_around[i] = ft[i] - arrival_time[i];
+		
 		total_wt += waiting_time[i];
 		total_ta += turn_around[i];
 	}
